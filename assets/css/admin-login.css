@@ -1,0 +1,362 @@
+@import url('https://googleapis.com');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f3f4f6;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.login-page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* الحاوية الرئيسية */
+.container {
+    background: linear-gradient(135deg, #fbf9f4 0%, #ffffff 50%);
+    width: 1000px;
+    height: 670px;
+    border-radius: 24px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+/* زر الإغلاق المتكيف */
+.close-btn {
+    position: absolute;
+    top: 25px;
+    background: #fff;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a1a1a;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    z-index: 10;
+    text-decoration: none;
+}
+html[dir="rtl"] .close-btn { left: 25px; }
+html[dir="ltr"] .close-btn { right: 25px; }
+
+/* قسم النموذج */
+.form-section {
+    flex: 1.1;
+    padding: 45px 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.login-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #1a1a1a;
+}
+
+.form-wrapper {
+    max-width: 370px;
+    width: 100%;
+    margin: auto 0;
+}
+
+.login-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.login-subtitle {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.login-error {
+    background-color: #fef2f2;
+    border: 1px solid #fee2e2;
+    color: #dc2626;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 12px;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.input-group input {
+    background: #fdfdfd;
+    border: 1px solid #e5e7eb;
+    padding: 13px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    color: #1a1a1a;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.input-group input:focus {
+    border-color: #1a1a1a;
+    background: #fff;
+}
+
+/* حقل كلمة المرور */
+.password-field {
+    position: relative;
+    width: 100%;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    font-size: 16px;
+}
+html[dir="rtl"] .password-toggle { left: 20px; }
+html[dir="ltr"] .password-toggle { right: 20px; }
+
+.login-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+.remember-me label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #4b5563;
+}
+
+.remember-me input[type="checkbox"] {
+    accent-color: #1a1a1a;
+    width: 15px;
+    height: 15px;
+}
+
+.forgot-password-link a {
+    color: #4b5563;
+    text-decoration: none;
+}
+
+/* زر الدخول المحدث باللون العنابي الفخم */
+.login-button {
+    background-color: #581d2c; /* اللون العنابي الفخم المتناسق مع صورتك */
+    color: #ffffff;
+    border: none;
+    width: 100%;
+    padding: 14px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* تأثير مرور الفأرة فوق الزر ليصبح أغمق قليلاً بشكل أنيق */
+.login-button:hover {
+    background-color: #421420; 
+}
+
+.social-login {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.social-btn {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    padding: 11px;
+    border-radius: 50px;
+    font-size: 13px;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.login-footer {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.login-footer a {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 600;
+    margin-inline-start: 4px;
+}
+
+/* --- تعديل قسم الصورة لتفادي الاختفاء --- */
+.image-section {
+    flex: 1;
+    background-color: #f3ede2; /* لون احتياطي */
+    margin: 16px;
+    border-radius: 20px;
+    position: relative;
+    min-width: 350px;
+}
+
+
+
+/* بطاقات عائمة زجاجية مضبوطة لـ RTL و LTR */
+.floating-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 14px 20px;
+    border-radius: 16px;
+    position: absolute;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 2;
+}
+
+/* البطاقة العلوية لكود الخصم */
+.top-card {
+    top: 35px;
+}
+html[dir="rtl"] .top-card { right: 35px; left: auto; }
+html[dir="ltr"] .top-card { left: 35px; right: auto; }
+
+.discount-badge {
+    width: 36px;
+    height: 36px;
+    background: #581d2c; /* نفس اللون العنابي الفخم للبادج */
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+
+.top-card h4 {
+    font-size: 13px;
+    color: #1a1a1a;
+    font-weight: 600;
+    text-align: start;
+}
+
+.top-card p {
+    font-size: 11px;
+    color: #6b7280;
+    text-align: start;
+}
+
+/* البطاقة السفلية للتقييم */
+.bottom-card {
+    bottom: 35px;
+    max-width: 260px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+html[dir="rtl"] .bottom-card { left: 35px; right: auto; }
+html[dir="ltr"] .bottom-card { right: 35px; left: auto; }
+
+.review-text {
+    font-size: 13px;
+    font-style: italic;
+    color: #1a1a1a;
+    line-height: 1.4;
+    text-align: start;
+}
+
+.stars {
+    color: #f59e0b;
+    font-size: 11px;
+    display: flex;
+    gap: 2px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+    }
+    .image-section {
+        display: none;
+    }
+}
+@media (max-width: 900px) {
+    /* تحويل البطاقة لعمود واحد بدلاً من عمودين */
+    .split-wrapper,
+    .login-card,
+    .login-container {
+        grid-template-columns: 1fr !important;
+        flex-direction: column !important;
+        height: auto !important;
+    }
+
+    /* إظهار قسم الصورة والبطاقة الزجاجية في الأعلى */
+    .visual-side,
+    .login-visual,
+    .image-side {
+        display: flex !important;
+        order: -1;
+        min-height: 280px !important;
+        width: 100% !important;
+    }
+
+    /* تصغير حجم البطاقة الزجاجية لتناسب شاشة الجوال */
+    .glass-center-card,
+    .glass-card {
+        width: 88% !important;
+        min-height: 190px !important;
+        padding: 18px !important;
+    }
+}

@@ -1,0 +1,17 @@
+# Private configuration files
+db.php
+mail_config.php
+config/mail.php
+.env
+
+# Database files
+*.sql
+
+# ZIP backups
+*.zip
+
+# Personal user photos
+uploads/profiles/
+
+# Admin photos
+assets/images/admins/

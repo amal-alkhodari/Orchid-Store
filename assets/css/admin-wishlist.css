@@ -1,0 +1,322 @@
+/* ==========================================================================
+   ORCHID ADMIN — CUSTOMER LIKES PAGE (assets/css/admin-wishlist.css)
+========================================================================== */
+
+.likes-shell,
+.likes-shell * {
+    box-sizing: border-box;
+}
+
+.likes-shell {
+    max-width: 1220px;
+    margin: 28px auto;
+    padding: 28px;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1.5px solid #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 12px 35px rgba(74, 21, 37, 0.05);
+}
+
+.likes-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-bottom: 20px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid rgba(74, 21, 37, 0.08);
+}
+
+.likes-title h1 {
+    margin: 0 0 4px;
+    font-size: 23px;
+    font-weight: 900;
+    color: #4A1525;
+}
+
+.likes-title p {
+    margin: 0;
+    font-size: 13px;
+    color: #846E75;
+}
+
+.likes-nav-btns {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.pill-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 20px;
+    background: #FFFFFF;
+    color: #4A1525;
+    border: 1px solid #EAE2DE;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.pill-nav-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.pill-nav-btn:hover {
+    background: #4A1525;
+    color: #FFFFFF;
+}
+
+.likes-error-alert {
+    background: #FFECEB;
+    color: #C93B4B;
+    padding: 12px 18px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.likes-summary-bar {
+    margin-bottom: 18px;
+}
+
+.likes-count-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: #FAF1F3;
+    color: #4A1525;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.likes-count-pill svg {
+    width: 15px;
+    height: 15px;
+    color: #C93B4B;
+}
+
+.likes-table-wrap {
+    background: #FFFFFF;
+    border: 1px solid #EAE2DE;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.likes-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: start;
+}
+
+.likes-table th {
+    padding: 15px 18px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #846E75;
+    background: #FAF7F5;
+    border-bottom: 1px solid #EAE2DE;
+}
+
+.likes-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #F4ECEE;
+    vertical-align: middle;
+    font-size: 13.5px;
+}
+
+.likes-table tr:hover td {
+    background: #FCF9FA;
+}
+
+.likes-empty-cell {
+    text-align: center !important;
+    padding: 40px !important;
+    color: #846E75;
+}
+
+.entity-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-circle-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid #E8DFDC;
+    flex-shrink: 0;
+}
+
+.user-circle-fallback {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4A1525, #A9747E);
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 14px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.user-circle-fallback.guest {
+    background: #B8A9AE;
+}
+
+.product-square-img {
+    width: 44px;
+    height: 52px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid #E8DFDC;
+    flex-shrink: 0;
+}
+
+.entity-meta {
+    min-width: 0;
+}
+
+.entity-meta strong {
+    display: block;
+    color: #2B181E;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.entity-meta small {
+    display: block;
+    color: #846E75;
+    font-size: 11.5px;
+    word-break: break-all;
+}
+
+.price-cell {
+    font-weight: 800;
+    color: #4A1525;
+}
+
+.date-cell {
+    color: #846E75;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   تجاوب صفحة الإعجابات مع الجوال — تحويل الجدول إلى بطاقات منظمة بدون تمرير أفقي
+========================================================================== */
+@media (max-width: 768px) {
+    .likes-shell {
+        margin: 12px 8px;
+        padding: 16px 12px;
+        border-radius: 14px;
+    }
+
+    .likes-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding-bottom: 14px;
+        margin-bottom: 16px;
+    }
+
+    .likes-title h1 {
+        font-size: 19px;
+    }
+
+    .likes-nav-btns {
+        width: 100%;
+    }
+
+    .pill-nav-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 9px 12px;
+        font-size: 12.5px;
+    }
+
+    .likes-count-pill {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* تحويل الجدول لبطاقات عمودية أنيقة */
+    .likes-table-wrap {
+        background: transparent;
+        border: none;
+        overflow: visible;
+    }
+
+    .likes-table,
+    .likes-table tbody,
+    .likes-table tr,
+    .likes-table td {
+        display: block;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .likes-table thead {
+        display: none;
+    }
+
+    .likes-table tr {
+        background: #FFFFFF;
+        border: 1px solid #EAE2DE;
+        border-radius: 14px;
+        padding: 14px;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 14px rgba(74, 21, 37, 0.04);
+    }
+
+    .likes-table td {
+        padding: 0;
+        border-bottom: none;
+    }
+
+    /* 1. بيانات المستخدمة في أعلى البطاقة */
+    .likes-table td:nth-child(1) {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #F4ECEE;
+    }
+
+    /* 2. بطاقة المنتج المُعجب به في المنتصف */
+    .likes-table td:nth-child(2) {
+        background: #FAF7F5;
+        border: 1px solid #F0E6E8;
+        border-radius: 10px;
+        padding: 10px 12px;
+        margin-bottom: 10px;
+    }
+
+    /* 3. السعر والتاريخ في أسفل البطاقة بجانب بعضهما */
+    .likes-table td:nth-child(3),
+    .likes-table td:nth-child(4) {
+        display: inline-flex;
+        align-items: center;
+        width: 49%;
+        font-size: 12.5px;
+    }
+
+    .likes-table td:nth-child(3) {
+        font-size: 14px;
+    }
+
+    .likes-table td:nth-child(4) {
+        justify-content: flex-end;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+}

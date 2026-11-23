@@ -1,0 +1,477 @@
+/* ==========================================================================
+   ORCHID BOUTIQUE — STANDALONE WISHLIST PAGE STYLE (assets/css/wishlist.css)
+========================================================================== */
+
+:root {
+    --orchid-burgundy: #581D2C;
+    --orchid-burgundy-dark: #3F131F;
+    --orchid-rose: #A9747E;
+    --orchid-cream: #FAF7F4;
+    --orchid-border: #E8DFDC;
+    --orchid-text: #2B181E;
+    --orchid-muted: #7C6A70;
+    --orchid-white: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body.orchid-cart-page {
+    background-color: var(--orchid-cream);
+    color: var(--orchid-text);
+    font-family: 'Tajawal', 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.65;
+}
+
+.cart-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ==========================================================================
+   1. الشريط العلوي المختصر (Topbar)
+========================================================================== */
+.cart-topbar {
+    background: var(--orchid-burgundy);
+    color: #F7EFEA;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 9px 0;
+}
+
+.cart-topbar-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-topbar-inner span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cart-topbar-inner svg,
+.cart-topbar-inner i {
+    width: 15px;
+    height: 15px;
+    color: #E6B8C0;
+}
+
+/* ==========================================================================
+   2. الترويسة الداخلية (Header)
+========================================================================== */
+.cart-header {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--orchid-border);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.cart-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cart-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--orchid-burgundy);
+}
+
+.cart-brand svg,
+.cart-brand i {
+    width: 28px;
+    height: 28px;
+    color: var(--orchid-burgundy);
+}
+
+.cart-brand span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.cart-brand small {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--orchid-muted);
+    margin-top: 3px;
+}
+
+.cart-nav {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    flex-wrap: wrap;
+}
+
+.cart-nav a {
+    text-decoration: none;
+    color: var(--orchid-text);
+    font-size: 14px;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+.cart-nav a:hover {
+    color: var(--orchid-burgundy);
+}
+
+.cart-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cart-header-actions > a:first-child {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--orchid-cream);
+    border: 1px solid var(--orchid-border);
+    color: var(--orchid-burgundy);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.cart-header-actions > a:first-child svg {
+    width: 18px;
+    height: 18px;
+}
+
+.cart-header-actions > a:first-child:hover {
+    background: var(--orchid-burgundy);
+    color: #FFFFFF;
+}
+
+.cart-account-btn {
+    padding: 8px 20px;
+    background: var(--orchid-cream);
+    border: 1px solid var(--orchid-border);
+    border-radius: 50px;
+    color: var(--orchid-burgundy);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.cart-account-btn:hover {
+    background: var(--orchid-burgundy);
+    color: #FFFFFF;
+    border-color: var(--orchid-burgundy);
+}
+
+/* ==========================================================================
+   3. مقدمة صفحة المفضلة (Hero Banner)
+========================================================================== */
+.cart-main {
+    padding: 36px 0 64px;
+}
+
+.cart-page-intro {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F5EAEB 100%);
+    border: 1px solid var(--orchid-border);
+    border-radius: 24px;
+    padding: 34px 42px;
+    margin-bottom: 28px;
+    box-shadow: 0 12px 32px rgba(88, 29, 44, 0.04);
+}
+
+.cart-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--orchid-muted);
+    margin-bottom: 16px;
+}
+
+.cart-breadcrumb a {
+    color: var(--orchid-burgundy);
+    text-decoration: none;
+}
+
+.cart-breadcrumb svg {
+    width: 14px;
+    height: 14px;
+    opacity: 0.6;
+}
+
+html[dir="ltr"] .cart-breadcrumb svg {
+    transform: rotate(180deg);
+}
+
+.cart-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cart-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--orchid-rose);
+    margin-bottom: 4px;
+}
+
+.cart-title-row h1 {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--orchid-burgundy);
+    margin: 0 0 6px;
+    line-height: 1.2;
+}
+
+.cart-title-row p {
+    font-size: 14px;
+    color: var(--orchid-muted);
+    margin: 0;
+}
+
+.cart-title-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1.5px solid var(--orchid-border);
+    color: var(--orchid-burgundy);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(88, 29, 44, 0.06);
+    flex-shrink: 0;
+}
+
+.cart-title-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+/* ==========================================================================
+   4. حالة المفضلة الفارغة (Empty Wishlist Box)
+========================================================================== */
+.wish-empty-box {
+    background: #FFFFFF;
+    border: 1px solid var(--orchid-border);
+    border-radius: 26px;
+    padding: 64px 28px;
+    text-align: center;
+    box-shadow: 0 14px 36px rgba(88, 29, 44, 0.04);
+}
+
+.wish-empty-icon {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: #FAF1F3;
+    color: var(--orchid-burgundy);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.wish-empty-icon svg {
+    width: 34px;
+    height: 34px;
+}
+
+.wish-empty-box h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--orchid-text);
+    margin: 0 0 10px;
+}
+
+.wish-empty-box p {
+    color: var(--orchid-muted);
+    font-size: 14.5px;
+    margin: 0 0 24px;
+}
+
+.wish-explore-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 36px;
+    background: linear-gradient(135deg, var(--orchid-burgundy), #78273C);
+    color: #FFFFFF;
+    border-radius: 50px;
+    font-size: 14.5px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 22px rgba(88, 29, 44, 0.22);
+    transition: all 0.25s ease;
+}
+
+.wish-explore-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(88, 29, 44, 0.30);
+}
+
+/* ==========================================================================
+   5. شبكة وبطاقات المنتجات المفضلة (Wishlist Grid & Cards)
+========================================================================== */
+.wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+    gap: 22px;
+}
+
+.wish-card {
+    background: #FFFFFF;
+    border: 1px solid var(--orchid-border);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 10px 26px rgba(88, 29, 44, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.wish-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(88, 29, 44, 0.08);
+}
+
+.wish-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.wish-body {
+    padding: 18px;
+    text-align: center;
+}
+
+.wish-body h3 {
+    font-size: 16px;
+    color: var(--orchid-text);
+    margin: 0 0 6px;
+    font-weight: 800;
+}
+
+.wish-price {
+    color: var(--orchid-burgundy);
+    font-weight: 800;
+    font-size: 15.5px;
+    margin-bottom: 16px;
+}
+
+.wish-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wish-btn-view {
+    flex: 1;
+    padding: 10px 16px;
+    background: var(--orchid-burgundy);
+    color: #FFFFFF;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    transition: background 0.2s ease;
+}
+
+.wish-btn-view:hover {
+    background: var(--orchid-burgundy-dark);
+}
+
+.wish-btn-remove {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--orchid-border);
+    background: var(--orchid-cream);
+    color: #C93B4B;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.wish-btn-remove svg {
+    width: 16px;
+    height: 16px;
+}
+
+.wish-btn-remove:hover {
+    background: #C93B4B;
+    color: #FFFFFF;
+    border-color: #C93B4B;
+}
+
+/* ==========================================================================
+   6. التجاوب مع الشاشات الصغيرة
+========================================================================== */
+@media (max-width: 768px) {
+    .cart-page-intro {
+        padding: 26px 24px;
+    }
+}
+
+@media (max-width: 550px) {
+    .cart-container {
+        padding: 0 16px;
+    }
+
+    .cart-title-row h1 {
+        font-size: 24px;
+    }
+
+    .cart-title-icon {
+        width: 50px;
+        height: 50px;
+    }
+    .cart-title-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+}
+/* إظهار أيقونات FontAwesome داخل الدوائر */
+.wish-btn-remove i,
+.cart-title-icon i,
+.cart-header-actions i {
+    display: inline-block !important;
+    font-size: 16px !important;
+    line-height: 1 !important;
+}
+
+.cart-title-icon i {
+    font-size: 24px !important;
+}

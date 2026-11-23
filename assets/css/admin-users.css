@@ -1,0 +1,416 @@
+/* ==========================================================================
+   ORCHID ADMIN — USERS MANAGEMENT PAGE (assets/css/admin-users.css)
+========================================================================== */
+
+.users-shell {
+    max-width: 1220px;
+    margin: 28px auto;
+    padding: 28px;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1.5px solid #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 12px 35px rgba(74, 21, 37, 0.05);
+}
+
+.users-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(74, 21, 37, 0.08);
+}
+
+.users-title h1 {
+    margin: 0 0 4px;
+    font-size: 23px;
+    font-weight: 900;
+    color: #4A1525;
+}
+
+.users-title p {
+    margin: 0;
+    font-size: 13px;
+    color: #846E75;
+}
+
+.users-nav-btns {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.pill-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 20px;
+    background: #FFFFFF;
+    color: #4A1525;
+    border: 1px solid #EAE2DE;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.pill-nav-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.pill-nav-btn:hover {
+    background: #4A1525;
+    color: #FFFFFF;
+}
+
+.users-alert-success {
+    background: #E8F8EE;
+    color: #2DA44E;
+    padding: 12px 18px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    font-weight: 700;
+}
+
+.users-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.search-box-form {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+    max-width: 480px;
+}
+
+.search-box-form input {
+    flex: 1;
+    height: 44px;
+    padding: 0 18px;
+    border: 1.5px solid #E6DCE0;
+    border-radius: 50px;
+    background: #FFFFFF;
+    font-family: inherit;
+    font-size: 13.5px;
+    outline: none;
+}
+
+.search-box-form button {
+    height: 44px;
+    padding: 0 24px;
+    background: #4A1525;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 50px;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.search-reset-btn {
+    height: 44px;
+}
+
+.users-count-badge {
+    padding: 8px 18px;
+    background: #FAF1F3;
+    color: #4A1525;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.users-table-wrap {
+    background: #FFFFFF;
+    border: 1px solid #EAE2DE;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: start;
+}
+
+.users-table th {
+    padding: 15px 18px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #846E75;
+    background: #FAF7F5;
+    border-bottom: 1px solid #EAE2DE;
+    text-transform: uppercase;
+}
+
+.users-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #F4ECEE;
+    vertical-align: middle;
+    font-size: 13.5px;
+}
+
+.users-table tr:hover td {
+    background: #FCF9FA;
+}
+
+.users-empty-cell {
+    text-align: center !important;
+    padding: 40px !important;
+    color: #846E75;
+}
+
+.user-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-avatar-img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid #E8DFDC;
+    flex-shrink: 0;
+}
+
+.user-avatar-fallback {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4A1525, #A9747E);
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 15px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.user-meta strong {
+    display: block;
+    color: #2B181E;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.user-meta small {
+    color: #846E75;
+    font-size: 11.5px;
+}
+
+.user-email-cell {
+    color: #5B4A50;
+    font-weight: 600;
+}
+
+.user-date-cell {
+    color: #846E75;
+    font-weight: 600;
+}
+
+.role-pill {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 11.5px;
+    font-weight: 800;
+    background: #F3EBF7;
+    color: #6841A5;
+}
+
+.status-pill-active {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 11.5px;
+    font-weight: 800;
+    background: #E8F8EE;
+    color: #2DA44E;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #2DA44E;
+}
+
+.del-user-form {
+    margin: 0;
+}
+
+.del-user-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    border: 1px solid #F5D5D8;
+    background: #FFF5F5;
+    color: #C93B4B;
+    cursor: pointer;
+    display: inline-grid;
+    place-items: center;
+    transition: 0.2s;
+}
+
+.del-user-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.del-user-btn:hover {
+    background: #C93B4B;
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   تجاوب صفحة المستخدمين مع الشاشات الصغيرة والجوال (Responsive)
+========================================================================== */
+/* ==========================================================================
+   تجاوب صفحة المستخدمين مع الجوال — تحويل الجدول لبطاقات منظمة بدون تمرير أفقي
+========================================================================== */
+/* ==========================================================================
+   تجاوب صفحة المستخدمين مع الجوال — تحويل الجدول لبطاقات منظمة بدون تمرير أفقي
+========================================================================== */
+@media (max-width: 768px) {
+    .users-shell {
+        margin: 12px 8px;
+        padding: 16px 12px;
+        border-radius: 12px;
+    }
+
+    .users-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding-bottom: 14px;
+        margin-bottom: 16px;
+    }
+
+    .users-title h1 {
+        font-size: 19px;
+    }
+
+    .users-nav-btns {
+        width: 100%;
+    }
+
+    .pill-nav-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 9px 12px;
+        font-size: 12.5px;
+    }
+
+    .users-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .search-box-form {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .search-box-form input {
+        min-width: 0;
+        font-size: 13px;
+        padding: 0 14px;
+    }
+
+    .users-count-badge {
+        text-align: center;
+        width: 100%;
+    }
+
+    /* إلغاء التمرير الأفقي وتحويل الجدول إلى بطاقات عمودية */
+    .users-table-wrap {
+        background: transparent;
+        border: none;
+        overflow: visible;
+    }
+
+    .users-table,
+    .users-table tbody,
+    .users-table tr,
+    .users-table td {
+        display: block;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .users-table thead {
+        display: none;
+    }
+
+    .users-table tr {
+        background: #FFFFFF;
+        border: 1px solid #EAE2DE;
+        border-radius: 12px;
+        padding: 14px;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 14px rgba(74, 21, 37, 0.04);
+        position: relative;
+    }
+
+    .users-table td {
+        padding: 6px 0;
+        border-bottom: none;
+        font-size: 13px;
+    }
+
+    /* صف الاسم والصورة في أعلى البطاقة */
+    .users-table td:nth-child(1) {
+        padding-bottom: 10px;
+        margin-bottom: 8px;
+        border-bottom: 1px solid #F4ECEE;
+        padding-inline-end: 42px; /* مساحة لزر الحذف */
+    }
+
+    /* الإيميل مع التفاف النص الطويل لمنع الخروج من الشاشة */
+    .user-email-cell {
+        word-break: break-all;
+        font-size: 12.5px;
+        color: #5B4A50;
+    }
+
+    /* وضع الدور والحالة والتاريخ بجانب بعضهم بشكل مرتب */
+    .users-table td:nth-child(3),
+    .users-table td:nth-child(4),
+    .users-table td:nth-child(5) {
+        display: inline-flex;
+        align-items: center;
+        width: auto;
+        margin-top: 6px;
+        margin-inline-end: 8px;
+    }
+
+    .user-date-cell {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    /* تثبيت زر الحذف في الزاوية العلوية للبطاقة */
+    .users-table td:nth-child(6) {
+        position: absolute;
+        top: 14px;
+        inset-inline-end: 14px;
+        width: auto;
+        padding: 0;
+    }
+}

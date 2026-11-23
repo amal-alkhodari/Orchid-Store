@@ -1,0 +1,244 @@
+
+/* =========================================
+   ORCHID BOUTIQUE - FEATURED CATEGORIES
+   ========================================= */
+
+.categories-section {
+    position: relative;
+    padding: 70px 5%;
+    margin: 35px 0;
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(178, 144, 83, 0.10),
+            transparent 32%
+        ),
+        #f7f1e8;
+    overflow: hidden;
+}
+
+.categories-section .section-title {
+    max-width: 700px;
+    margin: 0 auto 42px;
+    text-align: center;
+}
+
+.categories-section .section-title h2 {
+    margin: 0 0 14px;
+    color: #652e70;
+    font-family: "Tajawal", "Cairo", sans-serif;
+    font-size: clamp(27px, 3vw, 38px);
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.categories-section .section-title h2::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 3px;
+    margin: 12px auto 0;
+    border-radius: 5px;
+    background: #b29053;
+}
+
+.categories-section .section-title p {
+    margin: 0;
+    color: #786c61;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+/* Three featured collection cards */
+
+.categories-section .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 1250px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.categories-section .category-card {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    background: #fffdf9;
+    border: 1px solid rgba(178, 144, 83, 0.30);
+    border-radius: 20px;
+    box-shadow: 0 9px 28px rgba(45, 37, 30, 0.07);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.categories-section .category-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(101, 46, 112, 0.45);
+    box-shadow: 0 18px 38px rgba(45, 37, 30, 0.14);
+}
+
+/* Image slider */
+
+.categories-section .category-slider-wrapper {
+    position: relative;
+    height: 280px !important;
+    overflow: hidden;
+    background: #e9dfd1;
+}
+
+.categories-section .category-images-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.categories-section .category-images-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    flex: 0 0 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Category information */
+
+.categories-section .category-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 20px 26px;
+    text-align: center;
+}
+
+.categories-section .category-info h3 {
+    margin: 0 0 10px;
+    color: #36283a;
+    font-family: "Tajawal", "Cairo", sans-serif;
+    font-size: 23px;
+    font-weight: 800;
+    line-height: 1.6;
+}
+
+.categories-section .category-info .count {
+    display: inline-block;
+    margin-bottom: 21px;
+    padding: 6px 14px;
+    border: 1px solid #eadfcf;
+    border-radius: 30px;
+    background: #f8f2e8;
+    color: #8a6a37;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Elegant purple collection button */
+
+.categories-section .btn-category {
+    width: 100%;
+    max-width: 230px;
+    min-height: 47px;
+    margin-top: auto;
+    padding: 12px 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid #652e70;
+    border-radius: 10px;
+    background: #652e70;
+    color: #fff !important;
+    font-family: "Tajawal", "Cairo", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 5px 13px rgba(101, 46, 112, 0.14);
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.categories-section .btn-category i {
+    color: #e5c98e;
+    transition: transform 0.25s ease;
+}
+
+.categories-section .btn-category:hover {
+    background: #51245a;
+    border-color: #b29053;
+    box-shadow: 0 8px 19px rgba(101, 46, 112, 0.22);
+    transform: translateY(-2px);
+}
+
+.categories-section .btn-category:hover i {
+    transform: translateX(-3px);
+}
+
+/* Medium screens */
+
+@media (max-width: 900px) {
+    .categories-section {
+        padding: 55px 4%;
+    }
+
+    .categories-section .categories-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .categories-section .category-slider-wrapper {
+        height: 250px !important;
+    }
+}
+
+/* Mobile screens */
+
+@media (max-width: 580px) {
+    .categories-section {
+        padding: 42px 16px;
+        margin: 20px 0;
+    }
+
+    .categories-section .section-title {
+        margin-bottom: 28px;
+    }
+
+    .categories-section .categories-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 23px;
+        max-width: 390px;
+    }
+
+    .categories-section .category-slider-wrapper {
+        height: 270px !important;
+    }
+
+    .categories-section .category-info {
+        padding: 21px 18px 24px;
+    }
+
+    .categories-section .category-info h3 {
+        font-size: 22px;
+    }
+
+    .categories-section .btn-category {
+        max-width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .categories-section .category-card,
+    .categories-section .btn-category,
+    .categories-section .category-images-container {
+        transition: none;
+    }
+}

@@ -1,0 +1,804 @@
+
+/* =========================================
+   Orchid Boutique — Admin Pages
+   ========================================= */
+
+.admin-page {
+    --admin-purple: #652e70;
+    --admin-purple-dark: #4b2054;
+    --admin-gold: #b29053;
+    --admin-cream: #f7f2eb;
+    --admin-text: #302735;
+    --admin-muted: #776e7b;
+
+    box-sizing: border-box;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    padding: 32px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--admin-text);
+    background:
+        radial-gradient(ellipse at 10% 15%, rgba(101, 46, 112, .13), transparent 35%),
+        radial-gradient(ellipse at 90% 85%, rgba(178, 144, 83, .13), transparent 32%),
+        var(--admin-cream);
+    font-family: 'Tajawal', 'Cairo', Arial, sans-serif;
+}
+
+.admin-page *,
+.admin-page *::before,
+.admin-page *::after {
+    box-sizing: border-box;
+}
+
+/* Main card */
+.admin-page .admin-box {
+    width: 100%;
+    max-width: 460px;
+    margin: auto;
+    padding: 42px 38px;
+    background: rgba(255, 255, 255, .96);
+    border: 1px solid rgba(101, 46, 112, .12);
+    border-radius: 24px;
+    box-shadow: 0 22px 65px rgba(54, 30, 58, .12);
+    position: relative;
+    overflow: hidden;
+}
+
+.admin-page .admin-box::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 5px;
+    background: linear-gradient(90deg, var(--admin-gold), var(--admin-purple), var(--admin-gold));
+}
+
+/* Brand */
+.admin-page .admin-brand {
+    margin: 0 0 8px;
+    color: var(--admin-purple);
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(27px, 5vw, 34px);
+    font-weight: 700;
+    letter-spacing: .3px;
+    line-height: 1.5;
+}
+
+/* Heading */
+.admin-page .admin-box h2 {
+    position: relative;
+    margin: 0 0 18px;
+    padding-bottom: 18px;
+    color: var(--admin-text);
+    text-align: center;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.6;
+}
+
+.admin-page .admin-box h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 58px;
+    height: 3px;
+    border-radius: 10px;
+    background: var(--admin-gold);
+    transform: translateX(-50%);
+}
+
+/* Intro paragraph */
+.admin-page .admin-box > p:not(.admin-message) {
+    margin: 0 0 26px;
+    color: var(--admin-muted);
+    font-size: 14px;
+    line-height: 1.9;
+    text-align: center;
+}
+
+/* Form layout */
+.admin-page .admin-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.admin-page .admin-box label {
+    display: block;
+    margin: 0 0 8px;
+    color: var(--admin-text);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.admin-page .admin-box input[type="text"],
+.admin-page .admin-box input[type="password"] {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 51px;
+    margin: 0 0 20px;
+    padding: 13px 15px;
+    color: var(--admin-text);
+    background: #fff;
+    border: 1px solid #e5dce8;
+    border-radius: 12px;
+    outline: none;
+    font-family: inherit;
+    font-size: 15px;
+    transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.admin-page .admin-box input:hover {
+    border-color: #c8afd0;
+}
+
+.admin-page .admin-box input:focus {
+    background: #fff;
+    border-color: var(--admin-purple);
+    box-shadow: 0 0 0 4px rgba(101, 46, 112, .10);
+}
+
+.admin-page .admin-box input:focus-visible {
+    outline: none;
+}
+
+/* Submit button */
+.admin-page .admin-box button[type="submit"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 52px;
+    margin-top: 5px;
+    padding: 14px 20px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--admin-purple), var(--admin-purple-dark));
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(101, 46, 112, .22);
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.admin-page .admin-box button[type="submit"]:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(101, 46, 112, .28);
+}
+
+.admin-page .admin-box button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Feedback */
+.admin-page .admin-message {
+    margin: 0 0 20px;
+    padding: 13px 15px;
+    color: var(--admin-purple-dark);
+    background: #f6eef8;
+    border: 1px solid #e8d9ec;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+/* Dashboard actions */
+.admin-page .admin-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 13px;
+    margin-top: 28px;
+}
+
+.admin-page .admin-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    width: 100%;
+    min-height: 54px;
+    padding: 15px 19px;
+    color: #fff;
+    background: var(--admin-purple);
+    border: 1px solid var(--admin-purple);
+    border-radius: 13px;
+    box-shadow: 0 5px 14px rgba(101, 46, 112, .13);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.admin-page .admin-action-btn:hover {
+    color: #fff;
+    background: var(--admin-purple-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 9px 20px rgba(101, 46, 112, .20);
+}
+
+.admin-page .admin-action-arrow {
+    flex-shrink: 0;
+    color: #ead8b6;
+    font-size: 21px;
+    line-height: 1;
+    transition: transform .2s ease;
+}
+
+.admin-page[dir="rtl"] .admin-action-btn:hover .admin-action-arrow {
+    transform: translateX(-3px);
+}
+
+.admin-page[dir="ltr"] .admin-action-btn:hover .admin-action-arrow {
+    transform: translateX(3px);
+}
+
+/* English layout */
+.admin-page[dir="ltr"] .admin-box {
+    text-align: left;
+}
+
+.admin-page[dir="ltr"] .admin-box h2,
+.admin-page[dir="ltr"] .admin-box > p:not(.admin-message) {
+    text-align: center;
+}
+
+.admin-page[dir="ltr"] .admin-box label {
+    text-align: left;
+}
+
+.admin-page[dir="ltr"] .admin-box input {
+    direction: ltr;
+    text-align: left;
+}
+
+/* Keyboard accessibility */
+.admin-page .admin-action-btn:focus-visible,
+.admin-page .admin-box button:focus-visible {
+    outline: 3px solid #c9a6d0;
+    outline-offset: 4px;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .admin-page {
+        padding: 20px 13px;
+    }
+
+    .admin-page .admin-box {
+        padding: 34px 22px;
+        border-radius: 19px;
+    }
+
+    .admin-page .admin-brand {
+        font-size: 27px;
+    }
+
+    .admin-page .admin-box h2 {
+        font-size: 19px;
+    }
+}
+
+/* Admin remember me */
+.admin-remember-me {
+    width: 100%;
+    margin: 4px 0 20px;
+    text-align: start;
+}
+
+.admin-remember-me label {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    cursor: pointer;
+    color: #652e70;
+    font-size: 14px;
+}
+
+.admin-remember-me input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: #652e70;
+    cursor: pointer;
+}
+
+.forgot-password-link {
+    margin: 0 0 18px;
+    text-align: start;
+}
+
+.forgot-password-link a {
+    color: #652e70;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.forgot-password-link a:hover {
+    color: #b29053;
+    text-decoration: underline;
+}
+
+/* ========================================
+   Orchid Boutique - Admin Login Design
+   ======================================== */
+
+body.admin-page {
+    min-height: 100vh;
+    margin: 0;
+    padding: 32px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(178, 144, 83, 0.13),
+            transparent 35%
+        ),
+        #f4eee2;
+    color: #2d251e;
+    font-family: "Tajawal", "Segoe UI", Arial, sans-serif;
+}
+
+.admin-page .admin-box {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 38px 34px;
+    background: #fffdf9;
+    border: 1px solid rgba(178, 144, 83, 0.35);
+    border-radius: 22px;
+    box-shadow:
+        0 22px 55px rgba(45, 37, 30, 0.10),
+        0 4px 14px rgba(101, 46, 112, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.admin-page .admin-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    inset-inline: 0;
+    height: 5px;
+    background: linear-gradient(
+        90deg,
+        #b29053,
+        #652e70,
+        #b29053
+    );
+}
+
+.admin-page .admin-brand {
+    margin: 0 0 12px;
+    color: #652e70;
+    font-size: 29px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    text-align: center;
+}
+
+.admin-page .admin-box h2 {
+    margin: 0 0 12px;
+    color: #2d251e;
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.admin-page .admin-message {
+    margin: 0 0 24px;
+    color: #7b7067;
+    font-size: 14px;
+    line-height: 1.9;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.admin-page .admin-box form {
+    width: 100%;
+    margin: 0;
+}
+
+.admin-page .admin-box form label {
+    display: block;
+    margin: 17px 0 8px;
+    color: #3d303b;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.admin-page .admin-box form input[type="email"],
+.admin-page .admin-box form input[type="text"],
+.admin-page .admin-box form input[type="password"] {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    margin: 0;
+    padding: 12px 14px;
+    border: 1px solid #e0d5c7;
+    border-radius: 11px;
+    outline: none;
+    background: #fff;
+    color: #2d251e;
+    font-family: inherit;
+    font-size: 15px;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.admin-page .admin-box form input:focus {
+    border-color: #652e70;
+    background: #fffdfb;
+    box-shadow: 0 0 0 4px rgba(101, 46, 112, 0.10);
+}
+
+.admin-page .admin-box form input::placeholder {
+    color: #aaa098;
+}
+
+.admin-page .password-field {
+    position: relative;
+    width: 100%;
+}
+
+.admin-page .password-field input[type="password"],
+.admin-page .password-field input[type="text"] {
+    padding-inline-end: 48px;
+}
+
+.admin-page .password-field .password-toggle {
+    position: absolute;
+    top: 50%;
+    inset-inline-end: 8px;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #652e70;
+    cursor: pointer;
+}
+
+.admin-page .password-field .password-toggle:hover {
+    background: #f3eaf4;
+}
+
+.admin-page .admin-box form button[type="submit"] {
+    display: block;
+    width: 100%;
+    min-height: 49px;
+    margin: 24px 0 0;
+    padding: 13px 18px;
+    border: 1px solid #652e70;
+    border-radius: 11px;
+    background: #652e70;
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(101, 46, 112, 0.16);
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.admin-page .admin-box form button[type="submit"]:hover {
+    background: #51245a;
+    border-color: #51245a;
+    box-shadow: 0 8px 19px rgba(101, 46, 112, 0.23);
+    transform: translateY(-1px);
+}
+
+.admin-page .admin-box form button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+.admin-page .forgot-password-link {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.admin-page .forgot-password-link a {
+    color: #652e70;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.admin-page .forgot-password-link a:hover {
+    color: #b29053;
+    text-decoration: underline;
+}
+
+.admin-page .admin-box a {
+    transition: color 0.2s ease;
+}
+
+.admin-page .admin-box form input:focus-visible,
+.admin-page .admin-box button:focus-visible,
+.admin-page .admin-box a:focus-visible {
+    outline: 3px solid rgba(178, 144, 83, 0.55);
+    outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+    body.admin-page {
+        padding: 18px 13px;
+    }
+
+    .admin-page .admin-box {
+        max-width: 100%;
+        padding: 32px 22px;
+        border-radius: 18px;
+    }
+
+    .admin-page .admin-brand {
+        font-size: 25px;
+    }
+
+    .admin-page .admin-box h2 {
+        font-size: 21px;
+    }
+}
+/* ========================================
+   Orchid Boutique - Admin Login Design
+   ======================================== */
+
+body.admin-page {
+    min-height: 100vh;
+    margin: 0;
+    padding: 32px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(178, 144, 83, 0.13),
+            transparent 35%
+        ),
+        #f4eee2;
+    color: #2d251e;
+    font-family: "Tajawal", "Segoe UI", Arial, sans-serif;
+}
+
+.admin-page .admin-box {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 38px 34px;
+    background: #fffdf9;
+    border: 1px solid rgba(178, 144, 83, 0.35);
+    border-radius: 22px;
+    box-shadow:
+        0 22px 55px rgba(45, 37, 30, 0.10),
+        0 4px 14px rgba(101, 46, 112, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.admin-page .admin-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    inset-inline: 0;
+    height: 5px;
+    background: linear-gradient(
+        90deg,
+        #b29053,
+        #652e70,
+        #b29053
+    );
+}
+
+.admin-page .admin-brand {
+    margin: 0 0 12px;
+    color: #652e70;
+    font-size: 29px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    text-align: center;
+}
+
+.admin-page .admin-box h2 {
+    margin: 0 0 12px;
+    color: #2d251e;
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.admin-page .admin-message {
+    margin: 0 0 24px;
+    color: #7b7067;
+    font-size: 14px;
+    line-height: 1.9;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.admin-page .admin-box form {
+    width: 100%;
+    margin: 0;
+}
+
+.admin-page .admin-box form label {
+    display: block;
+    margin: 17px 0 8px;
+    color: #3d303b;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.admin-page .admin-box form input[type="email"],
+.admin-page .admin-box form input[type="text"],
+.admin-page .admin-box form input[type="password"] {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    margin: 0;
+    padding: 12px 14px;
+    border: 1px solid #e0d5c7;
+    border-radius: 11px;
+    outline: none;
+    background: #fff;
+    color: #2d251e;
+    font-family: inherit;
+    font-size: 15px;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.admin-page .admin-box form input:focus {
+    border-color: #652e70;
+    background: #fffdfb;
+    box-shadow: 0 0 0 4px rgba(101, 46, 112, 0.10);
+}
+
+.admin-page .admin-box form input::placeholder {
+    color: #aaa098;
+}
+
+.admin-page .password-field {
+    position: relative;
+    width: 100%;
+}
+
+.admin-page .password-field input[type="password"],
+.admin-page .password-field input[type="text"] {
+    padding-inline-end: 48px;
+}
+
+.admin-page .password-field .password-toggle {
+    position: absolute;
+    top: 50%;
+    inset-inline-end: 8px;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #652e70;
+    cursor: pointer;
+}
+
+.admin-page .password-field .password-toggle:hover {
+    background: #f3eaf4;
+}
+
+.admin-page .admin-box form button[type="submit"] {
+    display: block;
+    width: 100%;
+    min-height: 49px;
+    margin: 24px 0 0;
+    padding: 13px 18px;
+    border: 1px solid #652e70;
+    border-radius: 11px;
+    background: #652e70;
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(101, 46, 112, 0.16);
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.admin-page .admin-box form button[type="submit"]:hover {
+    background: #51245a;
+    border-color: #51245a;
+    box-shadow: 0 8px 19px rgba(101, 46, 112, 0.23);
+    transform: translateY(-1px);
+}
+
+.admin-page .admin-box form button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+.admin-page .forgot-password-link {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.admin-page .forgot-password-link a {
+    color: #652e70;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.admin-page .forgot-password-link a:hover {
+    color: #b29053;
+    text-decoration: underline;
+}
+
+.admin-page .admin-box a {
+    transition: color 0.2s ease;
+}
+
+.admin-page .admin-box form input:focus-visible,
+.admin-page .admin-box button:focus-visible,
+.admin-page .admin-box a:focus-visible {
+    outline: 3px solid rgba(178, 144, 83, 0.55);
+    outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+    body.admin-page {
+        padding: 18px 13px;
+    }
+
+    .admin-page .admin-box {
+        max-width: 100%;
+        padding: 32px 22px;
+        border-radius: 18px;
+    }
+
+    .admin-page .admin-brand {
+        font-size: 25px;
+    }
+
+    .admin-page .admin-box h2 {
+        font-size: 21px;
+    }
+}
+

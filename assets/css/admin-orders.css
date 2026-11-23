@@ -1,0 +1,1089 @@
+/* ==========================================================================
+   ORCHID BOUTIQUE — CLEAN GLASSMORPHISM ADMIN ORDERS
+   Matching Dashboard & Products Frosted Glass Theme
+========================================================================== */
+
+body {
+    margin: 0;
+    padding: 24px 18px;
+    min-height: 100vh;
+    background-color: #F4F1EF;
+    background-image:
+        radial-gradient(circle at 12% 88%, rgba(200, 178, 166, 0.78) 0%, rgba(200, 178, 166, 0) 48%),
+        radial-gradient(circle at 88% 12%, rgba(169, 116, 126, 0.48) 0%, rgba(169, 116, 126, 0) 50%),
+        radial-gradient(circle at 50% 50%, rgba(88, 29, 44, 0.16) 0%, rgba(88, 29, 44, 0) 50%);
+    background-attachment: fixed;
+    font-family: 'Tajawal', 'Plus Jakarta Sans', sans-serif;
+    color: #2B181E;
+}
+
+.admin-orders-page {
+    --wine: #4A1525;
+    --wine-light: #631D32;
+    --ink: #2B181E;
+    --muted: #846E75;
+    --white: #FFFFFF;
+
+    --glass-wrapper: rgba(255, 255, 255, 0.54);
+    --glass-card: rgba(255, 255, 255, 0.72);
+    --glass-card-hover: rgba(255, 255, 255, 0.92);
+    --glass-border: rgba(255, 255, 255, 0.90);
+    --glass-shadow: 0 20px 50px rgba(74, 21, 37, 0.08);
+
+    direction: rtl;
+    width: min(1320px, 100%);
+    margin: 0 auto;
+    padding: 30px 34px;
+    background: var(--glass-wrapper);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 1.5px solid var(--glass-border);
+    border-radius: 32px;
+    box-shadow: var(--glass-shadow);
+}
+
+/* ==========================================================================
+   1. الهيدر العلوي (Top Header)
+========================================================================== */
+.orders-admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 26px;
+    padding: 22px 28px;
+    background: var(--glass-card);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1.5px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(74, 21, 37, 0.04);
+}
+
+.orders-admin-brand {
+    display: inline-block;
+    margin-bottom: 6px;
+    padding: 4px 12px;
+    background: rgba(74, 21, 37, 0.08);
+    border-radius: 20px;
+    color: var(--wine);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.orders-admin-header h1 {
+    margin: 0 0 4px;
+    color: var(--wine);
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.orders-admin-header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.orders-admin-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.orders-admin-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--wine);
+    border: 1.5px solid var(--white);
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(74, 21, 37, 0.05);
+    transition: all 0.25s ease;
+}
+
+.orders-admin-links a:hover {
+    background: var(--wine);
+    color: var(--white);
+    border-color: var(--wine);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   2. بطاقات الإحصائيات (نظيفة وبدون أي خط جانبي)
+========================================================================== */
+.orders-admin-summary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.orders-stat {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 24px 28px;
+    background: var(--glass-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1.5px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(74, 21, 37, 0.04);
+    transition: all 0.25s ease;
+}
+
+/* إزالة الخط الجانبي الملتف نهائياً */
+.orders-stat::before {
+    display: none !important;
+    content: none !important;
+}
+
+.orders-stat:hover {
+    transform: translateY(-3px);
+    background: var(--glass-card-hover);
+    box-shadow: 0 12px 28px rgba(74, 21, 37, 0.08);
+}
+
+/* إخفاء الكلمة الزائدة "المالية" أو "الإجمالي" لو كانت داخل العنصر */
+.orders-stat small,
+.orders-stat .stat-tag {
+    display: none;
+}
+
+.orders-stat span {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--muted);
+    font-size: 13.5px;
+    font-weight: 700;
+}
+
+.orders-stat strong {
+    display: block;
+    color: var(--ink);
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+/* ==========================================================================
+   3. شريط البحث الزجاجي (Search Bar)
+========================================================================== */
+.orders-search-bar,
+.orders-filter-form,
+.admin-orders-search {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 26px;
+    padding: 14px 18px;
+    background: var(--glass-card);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1.5px solid var(--glass-border);
+    border-radius: 50px;
+    box-shadow: 0 8px 24px rgba(74, 21, 37, 0.04);
+}
+
+.orders-search-bar input,
+.orders-filter-form input,
+.admin-orders-search input {
+    flex: 1;
+    height: 44px;
+    padding: 0 20px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1.5px solid var(--white);
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.orders-search-bar input:focus,
+.orders-filter-form input:focus,
+.admin-orders-search input:focus {
+    background: var(--white);
+    border-color: var(--wine);
+    box-shadow: 0 4px 14px rgba(74, 21, 37, 0.08);
+}
+
+.orders-search-bar button,
+.orders-filter-form button,
+.admin-orders-search button {
+    height: 44px;
+    padding: 0 28px;
+    background: linear-gradient(135deg, var(--wine), var(--wine-light));
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(74, 21, 37, 0.22);
+    transition: all 0.2s ease;
+}
+
+.orders-search-bar button:hover,
+.orders-filter-form button:hover,
+.admin-orders-search button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(74, 21, 37, 0.30);
+}
+
+/* ==========================================================================
+   4. بطاقة الطلب وتفاصيله (Order Card)
+========================================================================== */
+.admin-order-card {
+    margin-bottom: 24px;
+    overflow: hidden;
+    background: var(--glass-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1.5px solid var(--glass-border);
+    border-radius: 26px;
+    box-shadow: 0 8px 24px rgba(74, 21, 37, 0.04);
+}
+
+.admin-order-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px 26px;
+    background: rgba(255, 255, 255, 0.45);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.admin-order-heading h2 {
+    margin: 0 0 4px;
+    color: var(--wine);
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.admin-order-heading p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12.5px;
+    font-weight: 600;
+}
+
+/* شارات الحالة */
+.admin-order-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 16px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.status-pending    { color: #946200; background: #FFF4D6; }
+.status-confirmed  { color: #2458A6; background: #E8F1FF; }
+.status-processing { color: #6841A5; background: #F0E8FF; }
+.status-shipped    { color: #087D85; background: #E0F7F7; }
+.status-delivered  { color: #24733A; background: #E6F7E9; }
+.status-cancelled  { color: #A62C37; background: #FFEAEC; }
+
+/* معلومات المشتري والمنتجات */
+.buyer-information,
+.admin-order-products {
+    padding: 22px 26px;
+}
+
+.buyer-information h3,
+.admin-order-products h3 {
+    margin: 0 0 16px;
+    color: var(--wine);
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.buyer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.buyer-grid > div {
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid var(--white);
+    border-radius: 16px;
+}
+
+.buyer-grid span {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--muted);
+    font-size: 11.5px;
+    font-weight: 700;
+}
+
+.buyer-grid strong {
+    display: block;
+    color: var(--ink);
+    font-size: 13.5px;
+}
+
+.admin-order-products {
+    border-top: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+.admin-order-product {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.60);
+    border: 1px solid var(--white);
+    border-radius: 16px;
+}
+
+.admin-order-product img {
+    width: 68px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1.5px solid var(--white);
+}
+
+.admin-product-info {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+}
+
+.admin-product-info strong {
+    flex-basis: 100%;
+    font-size: 14px;
+    color: var(--ink);
+}
+
+.admin-product-info span {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.admin-item-price {
+    color: var(--wine);
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.admin-order-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 26px;
+    background: rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.admin-order-footer span {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.admin-order-footer strong {
+    color: var(--wine);
+    font-size: 22px;
+    font-weight: 800;
+}
+
+/* رسالة عدم وجود طلبات */
+.orders-admin-empty {
+    padding: 60px 20px;
+    text-align: center;
+    background: var(--glass-card);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1.5px dashed rgba(74, 21, 37, 0.25);
+    border-radius: 26px;
+}
+
+.orders-admin-empty div {
+    margin-bottom: 12px;
+    color: var(--wine);
+    font-size: 42px;
+}
+
+.orders-admin-empty h2 {
+    color: var(--ink);
+    font-size: 19px;
+    font-weight: 800;
+}
+
+/* دعم الاتجاه الإنجليزي */
+html[dir="ltr"] .admin-orders-page {
+    direction: ltr;
+}
+
+/* ==========================================================================
+   5. Responsive Design (التجاوب الكامل مع الجوال والتابلت)
+========================================================================== */
+@media (max-width: 768px) {
+    body {
+        padding: 12px 10px;
+    }
+
+    .admin-orders-page {
+        padding: 18px 14px;
+        border-radius: 22px;
+    }
+
+    .orders-admin-header {
+        padding: 20px;
+        align-items: flex-start;
+    }
+
+    .orders-admin-header h1 {
+        font-size: 22px;
+    }
+
+    .orders-admin-summary,
+    .buyer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .orders-search-bar,
+    .orders-filter-form,
+    .admin-orders-search {
+        flex-direction: column;
+        border-radius: 22px;
+        padding: 12px;
+    }
+
+    .orders-search-bar input,
+    .orders-filter-form input,
+    .admin-orders-search input,
+    .orders-search-bar button,
+    .orders-filter-form button,
+    .admin-orders-search button {
+        width: 100%;
+    }
+
+    .admin-order-heading,
+    .buyer-information,
+    .admin-order-products,
+    .admin-order-footer {
+        padding: 18px;
+    }
+
+    .admin-order-product {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .admin-order-product img {
+        width: 60px;
+        height: 72px;
+    }
+
+    .admin-item-price {
+        width: 100%;
+        text-align: end;
+        padding-top: 6px;
+        border-top: 1px dashed rgba(74, 21, 37, 0.12);
+    }
+
+    .orders-admin-links {
+        width: 100%;
+    }
+
+    .orders-admin-links a {
+        flex: 1;
+    }
+}
+/* ==========================================================================
+   ORCHID BOUTIQUE — ULTRA GLASSMORPHISM ADMIN ORDERS
+   Overrides Inline Styles to Match Frosted Glass Theme
+========================================================================== */
+
+body {
+    margin: 0 !important;
+    padding: 24px 18px !important;
+    min-height: 100vh !important;
+    background-color: #F4F1EF !important;
+    background-image:
+        radial-gradient(circle at 12% 88%, rgba(200, 178, 166, 0.78) 0%, rgba(200, 178, 166, 0) 48%),
+        radial-gradient(circle at 88% 12%, rgba(169, 116, 126, 0.48) 0%, rgba(169, 116, 126, 0) 50%),
+        radial-gradient(circle at 50% 50%, rgba(88, 29, 44, 0.16) 0%, rgba(88, 29, 44, 0) 50%) !important;
+    background-attachment: fixed !important;
+    font-family: 'Tajawal', 'Plus Jakarta Sans', sans-serif !important;
+    color: #2B181E !important;
+}
+
+/* الحاوية الرئيسية الزجاجية */
+.admin-orders-page {
+    max-width: 1260px !important;
+    margin: 0 auto !important;
+    padding: 30px !important;
+    background: rgba(255, 255, 255, 0.48) !important;
+    backdrop-filter: blur(28px) !important;
+    -webkit-backdrop-filter: blur(28px) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.88) !important;
+    border-radius: 32px !important;
+    box-shadow: 0 20px 50px rgba(88, 29, 44, 0.08) !important;
+}
+
+/* الهيدر العلوي */
+.admin-orders-page > header {
+    background: rgba(255, 255, 255, 0.65) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.90) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 8px 24px rgba(88, 29, 44, 0.04) !important;
+}
+
+.admin-orders-page > header a {
+    background: rgba(255, 255, 255, 0.80) !important;
+    border: 1.5px solid #FFFFFF !important;
+    color: #581D2C !important;
+    transition: all 0.25s ease !important;
+}
+
+.admin-orders-page > header a:hover {
+    background: #581D2C !important;
+    color: #FFFFFF !important;
+    border-color: #581D2C !important;
+    transform: translateY(-2px);
+}
+
+/* صناديق الإحصائيات العلوية (زجاجية نظيفة بدون الخط الجانبي السميك) */
+.admin-orders-page > section:first-of-type > div {
+    background: rgba(255, 255, 255, 0.68) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.90) !important;
+    border-inline-start: 1.5px solid rgba(255, 255, 255, 0.90) !important; /* إزالة الخط الجانبي */
+    border-radius: 24px !important;
+    box-shadow: 0 8px 24px rgba(88, 29, 44, 0.04) !important;
+    transition: all 0.25s ease !important;
+}
+
+.admin-orders-page > section:first-of-type > div:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.88) !important;
+}
+
+/* شريط البحث الزجاجي */
+.admin-orders-page > form {
+    background: rgba(255, 255, 255, 0.65) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.90) !important;
+    border-radius: 50px !important;
+    box-shadow: 0 8px 24px rgba(88, 29, 44, 0.04) !important;
+}
+
+.admin-orders-page > form input[type="text"] {
+    background: rgba(255, 255, 255, 0.82) !important;
+    border: 1.5px solid #FFFFFF !important;
+}
+
+.admin-orders-page > form input[type="text"]:focus {
+    background: #FFFFFF !important;
+    border-color: #581D2C !important;
+}
+
+/* بطاقات الطلبات الزجاجية (Articles) */
+.admin-orders-page article {
+    background: rgba(255, 255, 255, 0.65) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.90) !important;
+    border-radius: 26px !important;
+    box-shadow: 0 10px 30px rgba(88, 29, 44, 0.05) !important;
+    transition: all 0.25s ease !important;
+}
+
+.admin-orders-page article:hover {
+    background: rgba(255, 255, 255, 0.78) !important;
+}
+
+/* الصناديق الداخلية داخل بطاقة الطلب (بيانات المشتري والمنتجات) */
+.admin-orders-page article div[style*="background: #FAF"],
+.admin-orders-page article div[style*="background: #FBF"],
+.admin-orders-page article div[style*="background:#FAF"],
+.admin-orders-page article div[style*="background:#FBF"] {
+    background: rgba(255, 255, 255, 0.58) !important;
+    border: 1px solid rgba(255, 255, 255, 0.85) !important;
+    border-radius: 16px !important;
+}
+
+/* حالة عدم وجود طلبات */
+.orders-admin-empty {
+    background: rgba(255, 255, 255, 0.65) !important;
+    backdrop-filter: blur(18px) !important;
+    border: 1.5px dashed rgba(88, 29, 44, 0.25) !important;
+    border-radius: 26px !important;
+}
+
+/* ==========================================================================
+   التجاوب الكامل مع الشاشات الصغيرة (Responsive)
+========================================================================== */
+@media (max-width: 768px) {
+    body {
+        padding: 12px 10px !important;
+    }
+
+    .admin-orders-page {
+        padding: 18px 14px !important;
+        border-radius: 24px !important;
+    }
+
+    .admin-orders-page > header {
+        padding: 18px !important;
+        flex-direction: column-reverse !important;
+        align-items: stretch !important;
+    }
+
+    .admin-orders-page > header > div:last-child {
+        text-align: start !important;
+    }
+
+    .admin-orders-page > form {
+        border-radius: 22px !important;
+        padding: 14px !important;
+    }
+
+    .admin-orders-page > form input[type="text"],
+    .admin-orders-page > form button,
+    .admin-orders-page > form a {
+        width: 100% !important;
+    }
+}
+/* ==========================================================================
+   الشريط العلوي والقوائم المنسدلة لصفحة إدارة الطلبات (بدل الصندوقين)
+========================================================================== */
+.admin-orders-page,
+.orders-glass-navbar,
+.nav-pill-group,
+.nav-dropdown {
+    overflow: visible !important;
+}
+
+.orders-glass-navbar {
+    position: relative !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 16px !important;
+    padding: 20px 26px !important;
+    margin-bottom: 24px !important;
+    background: rgba(255, 255, 255, 0.65) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1.5px solid #FFFFFF !important;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 24px rgba(74, 21, 37, 0.04) !important;
+}
+
+.orders-brand-box .brand-badge {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #81777A;
+    margin-bottom: 2px;
+}
+
+.orders-brand-box h1 {
+    margin: 0 !important;
+    font-size: 22px !important;
+    font-weight: 900 !important;
+    color: #581D2C !important;
+}
+
+/* كبسولة الفلاتر الوسطى */
+.nav-pill-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1.5px solid #FFFFFF;
+    border-radius: 50px;
+    box-shadow: 0 4px 16px rgba(74, 21, 37, 0.04);
+    flex-wrap: wrap;
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 14px;
+}
+
+.pill-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #7D7275;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.pill-link:hover {
+    color: #581D2C;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.pill-link.active {
+    background: #FFFFFF;
+    color: #581D2C;
+    font-weight: 800;
+    box-shadow: 0 4px 14px rgba(74, 21, 37, 0.07);
+}
+
+.chevron-icon {
+    width: 14px;
+    height: 14px;
+    opacity: 0.7;
+    transition: transform 0.25s ease;
+}
+
+.nav-dropdown:hover .chevron-icon {
+    transform: rotate(180deg);
+}
+
+.pill-count {
+    font-size: 11.5px;
+    font-weight: 800;
+    padding: 2px 9px;
+    border-radius: 20px;
+    background: rgba(88, 29, 44, 0.09);
+    color: #581D2C;
+}
+
+.pill-count.burgundy {
+    background: #581D2C;
+    color: #FFFFFF;
+}
+
+/* القائمة المنسدلة */
+.glass-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    inset-inline-start: 0;
+    min-width: 245px;
+    padding: 10px;
+    background: #FFFFFF;
+    border: 1.5px solid #EAE2DE;
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(74, 21, 37, 0.16);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.25s ease;
+    z-index: 10000;
+}
+
+.nav-dropdown:hover .glass-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    color: #2B181E;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item svg {
+    width: 17px;
+    height: 17px;
+    color: #581D2C;
+    flex-shrink: 0;
+}
+
+.dropdown-item strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 800;
+    color: #581D2C;
+}
+
+.dropdown-item small {
+    display: block;
+    font-size: 11px;
+    color: #846E75;
+}
+
+.dropdown-item:hover {
+    background: rgba(88, 29, 44, 0.07);
+    color: #581D2C;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: rgba(88, 29, 44, 0.08);
+    margin: 6px 8px;
+}
+
+/* أزرار التنقل السريعة */
+.orders-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-pill-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.85);
+    color: #581D2C;
+    border: 1.5px solid #FFFFFF;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(74, 21, 37, 0.05);
+    transition: all 0.25s ease;
+}
+
+.nav-pill-btn:hover {
+    background: #581D2C;
+    color: #FFFFFF;
+    border-color: #581D2C;
+}
+
+.clear-orders-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: #FFECEB;
+    color: #C93B4B;
+    border-radius: 50px;
+    font-size: 12.5px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.clear-orders-filter svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* خفض طبقة البحث وبطاقات الطلبات لتكون تحت القائمة المنسدلة */
+.admin-orders-page > form,
+.admin-orders-page article {
+    position: relative;
+    z-index: 1;
+}
+/* ==========================================================================
+   تجاوب الشريط العلوي والقوائم المنسدلة لصفحة الطلبات على الجوال
+========================================================================== */
+@media (max-width: 768px) {
+    .orders-glass-navbar {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 14px !important;
+        padding: 16px 14px !important;
+        border-radius: 20px !important;
+    }
+
+    .orders-brand-box {
+        text-align: center;
+    }
+
+    .orders-brand-box h1 {
+        font-size: 20px !important;
+    }
+
+    /* ضبط كبسولة الفلاتر (عدد الطلبات / حالة الطلبات / إجمالي القيمة) */
+    .orders-glass-navbar .nav-pill-group {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        padding: 8px !important;
+        border-radius: 18px !important;
+        gap: 6px !important;
+        background: rgba(255, 255, 255, 0.65) !important;
+        position: static !important;
+        box-shadow: 0 4px 16px rgba(74, 21, 37, 0.04) !important;
+    }
+
+    .orders-glass-navbar .nav-dropdown {
+        width: 100% !important;
+        position: relative !important;
+    }
+
+    .orders-glass-navbar .pill-link {
+        width: 100% !important;
+        justify-content: space-between !important;
+        padding: 11px 16px !important;
+        background: rgba(255, 255, 255, 0.85) !important;
+        border-radius: 12px !important;
+        font-size: 13.5px !important;
+        box-sizing: border-box;
+    }
+
+    /* إخفاء القوائم المنسدلة تلقائياً في الجوال وإظهارها عند اللمس/النقر فقط */
+    .orders-glass-navbar .glass-dropdown-menu {
+        position: static !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        margin-top: 6px !important;
+        padding: 8px !important;
+        box-sizing: border-box;
+        display: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        box-shadow: 0 6px 18px rgba(74, 21, 37, 0.08) !important;
+    }
+
+    .orders-glass-navbar .nav-dropdown:hover .glass-dropdown-menu,
+    .orders-glass-navbar .nav-dropdown:focus-within .glass-dropdown-menu {
+        display: block !important;
+    }
+
+    /* ضبط أزرار التنقل (لوحة التحكم / إدارة المنتجات) */
+    .orders-nav-links {
+        width: 100% !important;
+        display: flex !important;
+        gap: 8px !important;
+    }
+
+    .orders-nav-links .nav-pill-btn {
+        flex: 1 !important;
+        padding: 10px 12px !important;
+        font-size: 12.5px !important;
+        text-align: center;
+    }
+
+    .clear-orders-filter {
+        width: 100% !important;
+        justify-content: center !important;
+        box-sizing: border-box;
+    }
+}
+/* ==========================================================================
+   إصلاح التجاوب الكامل لصفحة الطلبات على الجوال
+========================================================================== */
+.admin-orders-page,
+.admin-orders-page * {
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .orders-glass-navbar {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 14px !important;
+        padding: 16px 14px !important;
+        border-radius: 20px !important;
+    }
+
+    .orders-brand-box {
+        text-align: center;
+    }
+
+    .orders-glass-navbar .nav-pill-group {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        padding: 8px !important;
+        border-radius: 18px !important;
+        gap: 6px !important;
+    }
+
+    .orders-glass-navbar .nav-dropdown {
+        width: 100% !important;
+    }
+
+    .orders-glass-navbar .pill-link {
+        width: 100% !important;
+        justify-content: space-between !important;
+        padding: 11px 16px !important;
+        background: #FFFFFF !important;
+        border-radius: 12px !important;
+    }
+
+    /* إخفاء القوائم المنسدلة افتراضياً وإظهارها عند اللمس فقط */
+    .orders-glass-navbar .glass-dropdown-menu {
+        position: static !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        margin-top: 6px !important;
+        display: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+
+    .orders-glass-navbar .nav-dropdown:hover .glass-dropdown-menu,
+    .orders-glass-navbar .nav-dropdown:focus-within .glass-dropdown-menu {
+        display: block !important;
+    }
+
+    .orders-nav-links {
+        width: 100% !important;
+        display: flex !important;
+        gap: 8px !important;
+    }
+
+    .orders-nav-links .nav-pill-btn {
+        flex: 1 !important;
+        padding: 10px !important;
+        font-size: 12.5px !important;
+    }
+
+    /* منع خروج حقل الملاحظة وحالة الطلب عن حدود البطاقة */
+    .admin-orders-page article form > div {
+        min-width: 100% !important;
+        width: 100% !important;
+        flex: none !important;
+    }
+
+    .admin-orders-page article form button[name="update_order"] {
+        width: 100% !important;
+        order: 3; /* يضع زر حفظ التحديث أسفل الحقول بشكل منطقي */
+    }
+}

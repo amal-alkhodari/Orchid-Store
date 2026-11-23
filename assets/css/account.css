@@ -1,0 +1,258 @@
+
+.account-overlay[hidden] {
+    display: none !important;
+}
+
+.account-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(25, 18, 28, 0.55);
+    backdrop-filter: blur(4px);
+}
+
+.account-modal {
+    position: relative;
+    width: 100%;
+    max-width: 390px;
+    padding: 35px 28px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.18);
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+    animation: accountAppear 0.2s ease-out;
+}
+
+.account-close {
+    position: absolute;
+    top: 12px;
+    inset-inline-end: 15px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background: #f5f0f6;
+    color: #5B2C6F;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.account-close:hover {
+    background: #e9ddec;
+}
+
+/* ضبط حجم صورة البروفايل داخل نافذة الحساب */
+.account-modal-image {
+    display: block;
+    width: 65px;
+    height: 65px;
+    max-width: 65px;
+    max-height: 65px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #eadfec;
+}
+.account-modal h2 {
+    margin: 0 0 10px;
+    color: #2d251e;
+    font-size: 24px;
+}
+
+.account-modal p {
+    margin: 0 0 25px;
+    color: #777;
+    font-size: 14px;
+}
+
+.account-action {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 12px;
+    padding: 13px 16px;
+    border: 1px solid #5B2C6F;
+    border-radius: 10px;
+    background: #5B2C6F;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font: inherit;
+    font-weight: bold;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.account-action:hover {
+    background: #4A235A;
+}
+
+.account-register {
+    background: #fff;
+    color: #5B2C6F;
+}
+
+.account-register:hover {
+    background: #f5eef7;
+    color: #4A235A;
+}
+
+@keyframes accountAppear {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .account-modal {
+        padding: 32px 22px;
+    }
+}
+
+/* زر الحساب بعد تسجيل الدخول */
+.account-profile-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 4px 8px;
+    border: 1px solid #eadfec;
+    border-radius: 30px;
+    background: #fff;
+    color: #5B2C6F;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.account-profile-btn:hover {
+    background: #f8f2fa;
+    border-color: #5B2C6F;
+}
+
+/* الصورة الشخصية الدائرية */
+.account-profile-image,
+.account-profile-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 50%;
+}
+
+.account-profile-image {
+    object-fit: cover;
+    border: 2px solid #eadfec;
+}
+
+.account-profile-placeholder {
+    background: #f3eaf5;
+    color: #5B2C6F;
+    font-size: 18px;
+}
+
+/* اسم المستخدم */
+.account-profile-name {
+    max-width: 125px;
+    overflow: hidden;
+    color: #2d251e;
+    font-size: 13px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+    .account-profile-name {
+        max-width: 75px;
+    }
+
+    .account-profile-btn {
+        gap: 5px;
+        padding: 3px 5px;
+    }
+
+    .account-profile-image,
+    .account-profile-placeholder {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+.admin-secret-link {
+    display: inline-block;
+    margin-top: 8px;
+    color: #8f8291;
+    font-size: 10px;
+    text-decoration: none;
+    opacity: 0.35;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.admin-secret-link:hover {
+    color: #d7b56d;
+    opacity: 1;
+}
+   .new-arrivals-page {
+            min-height: 60vh;
+            padding: 65px 5%;
+            background: #fbf5f0;
+        }
+
+        .new-arrivals-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .new-arrivals-heading h1 {
+            color: #4a0f20;
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .new-arrivals-heading p {
+            color: #806c68;
+            font-size: 15px;
+        }
+
+        .new-arrivals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 28px;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .new-arrivals-empty {
+            text-align: center;
+            padding: 70px 20px;
+            color: #806c68;
+            font-size: 17px;
+        }
+
+        @media (max-width: 600px) {
+            .new-arrivals-page {
+                padding: 40px 4%;
+            }
+
+            .new-arrivals-heading h1 {
+                font-size: 27px;
+            }
+
+            .new-arrivals-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px;
+            }
+        }

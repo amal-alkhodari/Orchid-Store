@@ -1,0 +1,432 @@
+
+/* =========================================
+   ORCHID BOUTIQUE — EDIT PRODUCT
+   Luxury Burgundy Admin Theme
+========================================= */
+
+.edit-product-page {
+    width: min(100% - 40px, 1050px);
+    margin: 38px auto 55px;
+    padding: 0;
+    color: #1A1A1A;
+    font-family: 'Tajawal', sans-serif;
+    box-sizing: border-box;
+}
+
+.edit-product-page * {
+    box-sizing: border-box;
+}
+
+/* Page heading */
+
+.edit-product-page h1 {
+    color: #421420;
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 0 25px;
+    line-height: 1.5;
+}
+
+/* Back link */
+
+.edit-product-page .form-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-bottom: 24px;
+    padding: 11px 20px;
+    background: #FFFFFF;
+    color: #581D2C;
+    border: 1px solid #E8E3E0;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all 0.25s ease;
+    box-shadow: 0 3px 12px rgba(26, 26, 26, 0.035);
+}
+
+.edit-product-page .form-back:hover {
+    background: #581D2C;
+    color: #FFFFFF;
+    border-color: #581D2C;
+    transform: translateY(-2px);
+}
+
+/* Success and error messages */
+
+.edit-product-page > p[role="status"],
+.edit-product-page > p[role="alert"] {
+    padding: 15px 18px;
+    margin: 0 0 22px;
+    border-radius: 13px;
+    line-height: 1.8;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.edit-product-page > p[role="status"] {
+    background: #EDF6EF;
+    color: #397047;
+    border: 1px solid #D4E8D8;
+}
+
+.edit-product-page > p[role="alert"] {
+    background: #FBEEEE;
+    color: #963E4A;
+    border: 1px solid #EED4D7;
+}
+
+/* Form card */
+
+.edit-product-page .add-product-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px 24px;
+    padding: 38px;
+    background: #FFFFFF;
+    border: 1px solid #E8E3E0;
+    border-radius: 22px;
+    box-shadow: 0 12px 40px rgba(40, 20, 25, 0.055);
+}
+
+/* Labels */
+
+.edit-product-page .add-product-form > label {
+    display: block;
+    min-width: 0;
+    margin: 0;
+    color: #1A1A1A;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.8;
+}
+
+/* Arabic and English descriptions */
+
+.edit-product-page .add-product-form > label:nth-child(3),
+.edit-product-page .add-product-form > label:nth-child(4) {
+    grid-column: 1 / -1;
+}
+
+/* Input fields */
+
+.edit-product-page .add-product-form input:not([type="file"]):not([type="checkbox"]),
+.edit-product-page .add-product-form select,
+.edit-product-page .add-product-form textarea {
+    display: block;
+    width: 100%;
+    min-height: 52px;
+    margin-top: 9px;
+    padding: 13px 17px;
+    border: 1px solid #E8E3E0;
+    border-radius: 13px;
+    background: #FCFBFA;
+    color: #1A1A1A;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+}
+
+.edit-product-page .add-product-form textarea {
+    min-height: 125px;
+    resize: vertical;
+    line-height: 1.9;
+}
+
+.edit-product-page .add-product-form input:focus,
+.edit-product-page .add-product-form select:focus,
+.edit-product-page .add-product-form textarea:focus {
+    border-color: #581D2C;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 4px rgba(88, 29, 44, 0.08);
+}
+
+.edit-product-page .add-product-form select {
+    cursor: pointer;
+}
+
+/* Current image area */
+
+.edit-product-page .add-product-form > div {
+    min-width: 0;
+    padding: 17px;
+    background: #FBF9F4;
+    border: 1px solid #E8E3E0;
+    border-radius: 15px;
+}
+
+.edit-product-page .add-product-form > div p {
+    margin: 0 0 13px;
+    color: #421420;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.edit-product-page .add-product-form > div img {
+    display: block;
+    width: 150px;
+    height: 165px;
+    max-width: 100%;
+    object-fit: contain;
+    padding: 8px;
+    background: #FFFFFF;
+    border: 1px solid #E8E3E0;
+    border-radius: 13px;
+}
+/* ==========================================================================
+   1. حقل رفع الصورة (بنفس شكل زر اختيار ملف الدائري العنابي)
+========================================================================== */
+.edit-product-page .add-product-form input[type="file"],
+.add-product-page .add-product-form input[type="file"] {
+    display: block;
+    width: 100%;
+    min-height: 60px;
+    margin-top: 9px;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1.5px dashed #BCA5A9;
+    border-radius: 50px; /* إطار خارجي مقوس بالكامل */
+    color: #81777A;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.edit-product-page .add-product-form input[type="file"]:hover,
+.add-product-page .add-product-form input[type="file"]:hover {
+    background: rgba(255, 255, 255, 0.90);
+    border-color: #581D2C;
+}
+
+.edit-product-page .add-product-form input[type="file"]::file-selector-button,
+.add-product-page .add-product-form input[type="file"]::file-selector-button {
+    height: 42px;
+    margin-inline-end: 14px;
+    padding: 0 24px;
+    background: #581D2C;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 50px; /* زر اختيار ملف دائري بالكامل */
+    font-family: 'Tajawal', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(88, 29, 44, 0.18);
+    transition: all 0.25s ease;
+}
+
+.edit-product-page .add-product-form input[type="file"]::file-selector-button:hover,
+.add-product-page .add-product-form input[type="file"]::file-selector-button:hover {
+    background: #421420;
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   2. مربع اختيار ظهور المنتج (Checkbox)
+========================================================================== */
+.edit-product-page .add-product-form > label:has(input[type="checkbox"]) {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 17px 22px;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(255, 255, 255, 0.88);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.edit-product-page .add-product-form > label:has(input[type="checkbox"]):hover {
+    border-color: #BCA5A9;
+    background: rgba(255, 255, 255, 0.90);
+}
+
+.edit-product-page .add-product-form input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    flex-shrink: 0;
+    accent-color: #581D2C;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   3. توحيد جميع الأزرار (حفظ التعديلات + حذف المنتج) بنفس شكل زر الصورة
+========================================================================== */
+.edit-product-page .add-product-form button[type="submit"],
+.add-product-page .add-product-form > button[type="submit"],
+.edit-product-page .delete-product-btn,
+.add-product-page .add-product-form > button.delete-product-btn,
+.delete-product-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    width: 100% !important;
+    max-width: 100%;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+
+    padding: 0 28px !important;
+    margin: 6px 0 !important;
+
+    background: #581D2C !important;
+    color: #FFFFFF !important;
+    border: 1px solid #581D2C !important;
+    border-radius: 50px !important; /* حواف دائرية كاملة مثل الصورة */
+
+    font-family: 'Tajawal', sans-serif !important;
+    font-size: 14.5px !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(88, 29, 44, 0.20) !important;
+    transition: all 0.25s ease !important;
+}
+
+/* تأثير التمرير والضغط لجميع الأزرار */
+.edit-product-page .add-product-form button[type="submit"]:hover,
+.add-product-page .add-product-form > button[type="submit"]:hover,
+.edit-product-page .delete-product-btn:hover,
+.add-product-page .add-product-form > button.delete-product-btn:hover,
+.delete-product-btn:hover {
+    background: #421420 !important;
+    border-color: #421420 !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(88, 29, 44, 0.28) !important;
+}
+
+/* التجاوب مع الجوال */
+@media (max-width: 700px) {
+    .edit-product-page {
+        width: min(100% - 24px, 1050px);
+        margin: 22px auto 35px;
+    }
+
+    .edit-product-page h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .edit-product-page .add-product-form {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 20px 16px;
+        border-radius: 22px;
+    }
+
+    .edit-product-page .add-product-form > label:nth-child(3),
+    .edit-product-page .add-product-form > label:nth-child(4),
+    .edit-product-page .add-product-form > label:has(input[type="checkbox"]),
+    .edit-product-page .add-product-form button[type="submit"],
+    .delete-product-btn {
+        grid-column: auto;
+    }
+}
+/* ==========================================================================
+   تجاوب صفحة إضافة وتعديل المنتج مع الجوال والتابلت (split-wrapper)
+========================================================================== */
+@media (max-width: 900px) {
+    html, body {
+        overflow-x: hidden;
+        max-width: 100%;
+    }
+
+    .split-wrapper {
+        display: flex;
+        flex-direction: column-reverse; /* يجعل بطاقة المعاينة العلوية في الأعلى والنموذج تحتها بشكل نظيف */
+        width: 100%;
+        max-width: 100%;
+        min-height: auto;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .visual-side {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        padding: 24px 16px !important;
+        border-radius: 0 0 28px 28px !important;
+        position: static !important;
+    }
+
+    .glass-center-card {
+        width: 100% !important;
+        max-width: 340px !important;
+        margin: 0 auto !important;
+        padding: 20px 16px !important;
+    }
+
+    .visual-bottom-badge {
+        margin-top: 14px !important;
+        width: auto !important;
+        max-width: 100%;
+    }
+
+    .form-side {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 24px 16px 36px !important;
+        margin: 0 !important;
+    }
+
+    .top-bar {
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    .form-header h1 {
+        font-size: 23px !important;
+    }
+
+    .fields-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+    }
+
+    .field-group,
+    .field-group.full {
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .field-group input,
+    .field-group select,
+    .field-group textarea {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* ضبط أزرار الحفظ والحذف في الجوال */
+    .form-side form > div[style*="display: flex"] {
+        flex-direction: column;
+        gap: 10px !important;
+    }
+
+    .form-side .submit-btn,
+    .form-side a[href*="delete_product.php"] {
+        width: 100% !important;
+        flex: none !important;
+    }
+}

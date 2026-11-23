@@ -1,0 +1,350 @@
+
+/* ==========================================
+   ORCHID BOUTIQUE
+   OFFERS — EDITORIAL SALE COLLECTION
+========================================== */
+
+.offers-page {
+    --wine: #4a0f20;
+    --ink: #282321;
+    --muted: #89817c;
+    --paper: #f7f5f1;
+    --line: #e8e2db;
+    --gold: #b99a69;
+
+    min-height: 80vh;
+    padding: 0 5% 100px;
+    background: var(--paper);
+    color: var(--ink);
+}
+
+/* INTRO SECTION */
+
+.offers-intro {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 350px;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 65px 8%;
+    overflow: hidden;
+    background: #4a0f20;
+    color: #fff;
+}
+
+.offers-intro::after {
+    content: "SALE";
+    position: absolute;
+    right: -10px;
+    bottom: -75px;
+    color: rgba(255, 255, 255, .045);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(130px, 23vw, 290px);
+    font-weight: 400;
+    letter-spacing: 8px;
+    pointer-events: none;
+}
+
+.offers-intro-content {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+}
+
+.offers-eyebrow {
+    display: block;
+    margin-bottom: 22px;
+    color: #d7bd9a;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.offers-intro-content h1 {
+    margin: 0 0 18px;
+    color: #fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(44px, 6vw, 72px);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.offers-intro-content p {
+    max-width: 470px;
+    margin: 0 0 28px;
+    color: rgba(255, 255, 255, .78);
+    font-size: 14px;
+    line-height: 2;
+}
+
+.offers-intro-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #d7bd9a;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    transition: gap .3s ease;
+}
+
+.offers-intro-link:hover {
+    gap: 22px;
+    color: #e5cfb1;
+}
+
+/* PRODUCTS SECTION */
+
+.offers-products-section {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding-top: 75px;
+}
+
+.offers-toolbar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 32px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--line);
+}
+
+.offers-section-label {
+    display: block;
+    margin-bottom: 9px;
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.offers-toolbar h2 {
+    margin: 0;
+    color: var(--wine);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 34px;
+    font-weight: 400;
+}
+
+.offers-count {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* PRODUCT GRID */
+
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 35px 22px;
+}
+
+.offer-card {
+    min-width: 0;
+    background: transparent;
+}
+
+/* PRODUCT IMAGE */
+
+.offer-image {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: #eae5df;
+    text-decoration: none;
+}
+
+.offer-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .65s cubic-bezier(.2, .7, .2, 1);
+}
+
+.offer-card:hover .offer-image img {
+    transform: scale(1.055);
+}
+
+/* DISCOUNT LABEL */
+
+.offer-discount {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    padding: 8px 12px;
+    background: var(--wine);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+/* HOVER LABEL */
+
+.offer-view {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 17px;
+    background: rgba(74, 15, 32, .92);
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all .35s ease;
+}
+
+.offer-card:hover .offer-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* PRODUCT INFO */
+
+.offer-info {
+    padding: 17px 2px 0;
+}
+
+.offer-info h3 {
+    margin: 0 0 10px;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+.offer-info h3 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color .25s ease;
+}
+
+.offer-info h3 a:hover {
+    color: var(--wine);
+}
+
+/* PRICES */
+
+.offer-price {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    flex-wrap: wrap;
+}
+
+.offer-current-price {
+    color: var(--wine);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.offer-old-price {
+    color: #a49b93;
+    font-size: 12px;
+    text-decoration: line-through;
+}
+
+/* EMPTY STATE */
+
+.offers-empty {
+    max-width: 700px;
+    margin: 70px auto;
+    padding: 60px 20px;
+    background: #fff;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    text-align: center;
+}
+
+.offers-empty i {
+    display: block;
+    margin-bottom: 18px;
+    color: var(--gold);
+    font-size: 32px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+    .offers-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 28px 18px;
+    }
+}
+
+@media (max-width: 760px) {
+    .offers-page {
+        padding: 0 16px 65px;
+    }
+
+    .offers-intro {
+        min-height: 320px;
+        padding: 50px 25px;
+    }
+
+    .offers-intro-content h1 {
+        font-size: 46px;
+    }
+
+    .offers-intro-content p {
+        font-size: 13px;
+    }
+
+    .offers-products-section {
+        padding-top: 50px;
+    }
+
+    .offers-toolbar h2 {
+        font-size: 27px;
+    }
+
+    .offers-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 12px;
+    }
+
+    .offer-info {
+        padding-top: 12px;
+    }
+
+    .offer-info h3 {
+        font-size: 12px;
+    }
+
+    .offer-current-price {
+        font-size: 13px;
+    }
+
+    .offer-view {
+        display: none;
+    }
+}
+
+@media (max-width: 380px) {
+    .offers-grid {
+        gap: 20px 9px;
+    }
+
+    .offers-intro {
+        padding: 42px 19px;
+    }
+
+    .offers-intro-content h1 {
+        font-size: 39px;
+    }
+}

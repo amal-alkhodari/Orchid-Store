@@ -1,0 +1,769 @@
+/* إخفاء أي كاردات قديمة للإحصائيات في كل الأحجام */
+.messages-stats,
+.message-stat {
+    display: none !important;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+}
+
+/* نظام المنيو الزجاجية الموحدة للفلترة والعدادات */
+.glass-filter-menu-wrapper {
+    position: relative;
+    display: inline-block;
+    z-index: 40;
+}
+
+.glass-menu-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: #581D2C;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(88, 29, 44, 0.08);
+    transition: all 0.22s ease;
+}
+
+.glass-menu-trigger:hover {
+    background: rgba(255, 255, 255, 0.94);
+    transform: translateY(-1px);
+}
+
+.glass-menu-count {
+    background: rgba(88, 29, 44, 0.12);
+    color: #581D2C;
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.glass-menu-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    inset-inline-end: 0;
+    min-width: 245px;
+    padding: 8px;
+    border-radius: 20px;
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    box-shadow: 0 18px 40px rgba(88, 29, 44, 0.16);
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.glass-filter-menu-wrapper.open .glass-menu-dropdown {
+    display: flex;
+}
+
+.glass-menu-option {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 14px;
+    background: transparent;
+    color: #221B1D;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-align: right;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.glass-menu-option:hover {
+    background: rgba(88, 29, 44, 0.08);
+    color: #581D2C;
+}
+
+.glass-menu-option.active {
+    background: #581D2C;
+    color: #FFFFFF;
+}
+
+.glass-menu-option .opt-badge {
+    font-size: 12px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(88, 29, 44, 0.1);
+    color: #581D2C;
+}
+
+.glass-menu-option.active .opt-badge {
+    background: rgba(255, 255, 255, 0.22);
+    color: #FFFFFF;
+}
+
+.glass-menu-divider {
+    height: 1px;
+    background: rgba(88, 29, 44, 0.1);
+    margin: 4px 8px;
+}
+
+.messages-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.toolbar-left-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.back-dash-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 16px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    color: #581D2C;
+    background: rgba(255, 255, 255, 0.65);
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    transition: all 0.2s ease;
+}
+
+.back-dash-pill:hover {
+    background: #581D2C;
+    color: #FFFFFF;
+}
+
+@media (max-width: 700px) {
+    .messages-page {
+        padding: 14px 10px;
+    }
+
+    .messages-table th,
+    .messages-table td {
+        padding: 10px 8px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .view-message {
+        padding: 6px 12px;
+        font-size: 11.5px;
+    }
+
+    .glass-menu-dropdown {
+        min-width: 220px;
+    }
+}
+/* خلفية وتنسيق الصفحة الزجاجي الموحد */
+body {
+    margin: 0;
+    padding: 24px 16px;
+    min-height: 100vh;
+    background-color: #F4F1EF;
+    background-image:
+        radial-gradient(circle at 12% 85%, rgba(200, 178, 166, 0.78) 0%, rgba(200, 178, 166, 0) 48%),
+        radial-gradient(circle at 88% 15%, rgba(169, 116, 126, 0.48) 0%, rgba(169, 116, 126, 0) 50%);
+    background-attachment: fixed;
+    font-family: 'Tajawal', sans-serif;
+    color: #221B1D;
+}
+
+.messages-page {
+    max-width: 1220px;
+    margin: 0 auto;
+}
+
+.messages-header {
+    margin-bottom: 18px;
+}
+
+.messages-header h1 {
+    margin: 0 0 4px;
+    font-size: 26px;
+    font-weight: 800;
+    color: #581D2C;
+}
+
+.messages-header p {
+    margin: 0;
+    font-size: 13.5px;
+    color: #7D7275;
+}
+
+/* الحاوية الزجاجية الرئيسية للجدول */
+.messages-container {
+    background: rgba(255, 255, 255, 0.58);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    border-radius: 28px;
+    padding: 22px;
+    box-shadow: 0 18px 45px rgba(88, 29, 44, 0.08);
+}
+
+.messages-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.messages-toolbar h2 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 800;
+    color: #221B1D;
+}
+
+.toolbar-left-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.back-dash-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    color: #581D2C;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1.5px solid #FFFFFF;
+    box-shadow: 0 4px 14px rgba(88, 29, 44, 0.06);
+    transition: all 0.2s ease;
+}
+
+.back-dash-pill:hover {
+    background: #581D2C;
+    color: #FFFFFF;
+    border-color: #581D2C;
+}
+
+/* منيو الفلترة الزجاجية */
+.glass-filter-menu-wrapper {
+    position: relative;
+    display: inline-block;
+    z-index: 40;
+}
+
+.glass-menu-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    border: 1.5px solid #FFFFFF;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: #581D2C;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(88, 29, 44, 0.08);
+    transition: all 0.2s ease;
+}
+
+.glass-menu-trigger:hover {
+    background: #FFFFFF;
+}
+
+.glass-menu-count {
+    background: rgba(88, 29, 44, 0.12);
+    color: #581D2C;
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.glass-menu-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    inset-inline-end: 0;
+    min-width: 240px;
+    padding: 8px;
+    border-radius: 20px;
+    border: 1.5px solid #FFFFFF;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    box-shadow: 0 18px 40px rgba(88, 29, 44, 0.16);
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.glass-filter-menu-wrapper.open .glass-menu-dropdown {
+    display: flex;
+}
+
+.glass-menu-option {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 14px;
+    background: transparent;
+    color: #221B1D;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-align: right;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.glass-menu-option:hover {
+    background: rgba(88, 29, 44, 0.08);
+    color: #581D2C;
+}
+
+.glass-menu-option.active {
+    background: #581D2C;
+    color: #FFFFFF;
+}
+
+.glass-menu-option .opt-badge {
+    font-size: 12px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(88, 29, 44, 0.1);
+    color: #581D2C;
+}
+
+.glass-menu-option.active .opt-badge {
+    background: rgba(255, 255, 255, 0.22);
+    color: #FFFFFF;
+}
+
+.glass-menu-divider {
+    height: 1px;
+    background: rgba(88, 29, 44, 0.1);
+    margin: 4px 8px;
+}
+
+/* تنسيق الجدول والصفوف */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 20px;
+}
+
+.messages-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    text-align: right;
+}
+
+.messages-table thead th {
+    padding: 10px 14px;
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #581D2C;
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.messages-table thead th:first-child {
+    border-start-start-radius: 14px;
+    border-end-start-radius: 14px;
+}
+
+.messages-table thead th:last-child {
+    border-start-end-radius: 14px;
+    border-end-end-radius: 14px;
+}
+
+.messages-table tbody tr {
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 4px 14px rgba(88, 29, 44, 0.04);
+    transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.messages-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.96);
+    transform: translateY(-1px);
+}
+
+.messages-table tbody td {
+    padding: 12px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #221B1D;
+    vertical-align: middle;
+    border-top: 1px solid rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.messages-table tbody td:first-child {
+    border-start-start-radius: 16px;
+    border-end-start-radius: 16px;
+    font-weight: 800;
+    color: #581D2C;
+}
+
+.messages-table tbody td:last-child {
+    border-start-end-radius: 16px;
+    border-end-end-radius: 16px;
+}
+
+.message-type {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    background: rgba(88, 29, 44, 0.1);
+    color: #581D2C;
+}
+
+.message-status {
+    font-weight: 700;
+    color: #286B50;
+}
+
+/* زر عرض الرسالة الزجاجي البرغندي */
+.view-message {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    background: rgba(88, 29, 44, 0.85);
+    color: #FFFFFF;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(88, 29, 44, 0.16);
+    transition: all 0.2s ease;
+}
+
+.view-message:hover {
+    background: #581D2C;
+    transform: translateY(-1px);
+}
+
+.empty-messages {
+    text-align: center !important;
+    padding: 28px !important;
+    color: #7D7275 !important;
+    font-weight: 700 !important;
+}
+/* نافذة تفاصيل الرسالة المنبثقة (Modal) */
+.message-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(34, 27, 29, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    z-index: 999;
+}
+
+.message-modal-overlay.active {
+    display: flex;
+}
+
+.message-modal {
+    width: 100%;
+    max-width: 620px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1.5px solid #FFFFFF;
+    border-radius: 28px;
+    padding: 22px;
+    box-shadow: 0 24px 60px rgba(88, 29, 44, 0.22);
+}
+
+.message-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(88, 29, 44, 0.12);
+    margin-bottom: 18px;
+}
+
+.modal-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(88, 29, 44, 0.12);
+    color: #581D2C;
+    display: grid;
+    place-items: center;
+}
+
+.message-modal-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+    color: #581D2C;
+}
+
+.message-modal-header p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #7D7275;
+}
+
+.modal-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(88, 29, 44, 0.18);
+    background: rgba(255, 255, 255, 0.8);
+    color: #581D2C;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+    background: #581D2C;
+    color: #FFFFFF;
+}
+
+.message-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.message-info-item,
+.message-subject-box,
+.message-content-box {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 18px;
+    padding: 12px 16px;
+}
+
+.message-info-item span,
+.message-subject-box span,
+.message-content-box span {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #7D7275;
+    margin-bottom: 4px;
+}
+
+.message-info-item strong {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #221B1D;
+    word-break: break-word;
+}
+
+.message-subject-box {
+    margin-bottom: 14px;
+}
+
+.message-subject-box h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 800;
+    color: #581D2C;
+}
+
+.message-content-box p {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #221B1D;
+    white-space: pre-line;
+}
+
+.message-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 18px;
+}
+
+#modalDone {
+    padding: 9px 22px;
+    border-radius: 999px;
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    background: rgba(88, 29, 44, 0.88);
+    color: #FFFFFF;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#modalDone:hover {
+    background: #581D2C;
+}
+
+@media (max-width: 600px) {
+    .message-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .message-modal {
+        padding: 16px;
+        border-radius: 22px;
+    }
+}
+/* ==========================================================================
+   عرض مريح بدون سحب أفقي على الجوال (إظهار زر عرض الرسالة مباشرة)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .messages-container {
+        padding: 14px 12px;
+        border-radius: 22px;
+    }
+
+    .table-wrapper {
+        overflow-x: visible;
+        border-radius: 0;
+    }
+
+    .messages-table {
+        display: block;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    .messages-table thead {
+        display: none;
+    }
+
+    .messages-table tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .messages-table tbody tr {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 6px 10px;
+        padding: 14px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.95);
+        box-shadow: 0 6px 18px rgba(88, 29, 44, 0.05);
+    }
+
+    .messages-table tbody tr:hover {
+        transform: none;
+    }
+
+    .messages-table tbody td {
+        padding: 0;
+        border: none !important;
+        border-radius: 0 !important;
+        white-space: normal;
+        font-size: 12.5px;
+    }
+
+    /* رقم الرسالة واسم العميل في السطر الأول */
+    .messages-table tbody td:nth-child(1) {
+        display: inline-block;
+        font-size: 12px;
+        color: #581D2C;
+        margin-inline-end: 6px;
+    }
+
+    .messages-table tbody td:nth-child(1)::before {
+        content: "#";
+    }
+
+    .messages-table tbody td:nth-child(2) {
+        display: inline-block;
+        font-weight: 800;
+        font-size: 13.5px;
+        color: #221B1D;
+    }
+
+    /* نوع الرسالة على اليسار */
+    .messages-table tbody td:nth-child(4) {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+    }
+
+    /* الموضوع */
+    .messages-table tbody td:nth-child(3) {
+        grid-column: 1 / -1;
+        color: #4A3F42;
+        font-weight: 700;
+    }
+
+    /* الحالة والتاريخ تحت بعض أو جنب بعض */
+    .messages-table tbody td:nth-child(5),
+    .messages-table tbody td:nth-child(6) {
+        grid-column: 1;
+        font-size: 11.5px;
+        color: #7D7275;
+    }
+
+    /* زر عرض الرسالة واضح وجاهز للضغط مباشرة بدون سحب */
+    .messages-table tbody td:nth-child(7) {
+        grid-column: 2;
+        grid-row: 2 / span 3;
+        align-self: center;
+        justify-self: end;
+    }
+
+    .view-message {
+        padding: 8px 14px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+}
